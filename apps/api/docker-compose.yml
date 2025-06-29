@@ -10,7 +10,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: c4rlosal3c
     volumes:
       - db_data_autospace:/var/lib/postgresql/data
 volumes:
