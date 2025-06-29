@@ -35,7 +35,7 @@ model Admin {
   createdAt     DateTime        @default(now())
   updated       DateTime        @default(now())
   updatedAt     DateTime        @updatedAt
-  Verifications Verifications[]
+  Verifications Verification[]
 }
 
 model Credentials {
@@ -186,7 +186,7 @@ model Booking {
   customerId      String
   ValetAssignment ValetAssignment?
   Customer        Customer             @relation(fields: [customerId], references: [uid])
-  Slot            Slot                 @relation(fields: [slotId], references: [uid])
+  Slot            Slot                 @relation(fields: [slotId], references: [id])
   BookingTimeline BookingTimeline[]
 
   @@index([startTime, endTime])
@@ -219,7 +219,7 @@ model BookingTimeline {
   Booking     Booking     @relation(fields: [bookingId], references: [id])
 
   valetId     String?
-  valet       Valet?      @relation(fields: [valetId], reference: [uid])
+  valet       Valet?      @relation(fields: [valetId], references: [uid])
 
   managerId   String?
   Manager     Manager?    @relation(fields: [managerId], references: [uid])
